@@ -1,7 +1,7 @@
 import { trpc } from '../utils/trpc';
 
 function Menu(props: any) {
-  const { data, isLoading } = trpc.useQuery(['hello', { text: 'abcd' }]);
+  const { data, isLoading } = trpc.useQuery(['questions.get-all']);
 
   if (isLoading || !data) return <div>Loading...</div>;
 

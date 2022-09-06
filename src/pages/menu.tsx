@@ -1,7 +1,11 @@
+import { useEffect } from 'react';
 import { trpc } from '../utils/trpc';
 
 function Menu(props: any) {
-  const { data, isLoading } = trpc.useQuery(['questions.get-all']);
+  const { data, isLoading } = trpc.useQuery(['ingredients.get-ingredients']);
+  const createIngredientMutation = trpc.useMutation([
+    'ingredients.create-ingredient',
+  ]);
 
   if (isLoading || !data) return <div>Loading...</div>;
 
